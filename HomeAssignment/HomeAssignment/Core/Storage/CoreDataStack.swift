@@ -1,19 +1,21 @@
 import CoreData
 
-final class CoreDataStack {
-    static let shared = CoreDataStack()
+protocol CoreDataStackProtocol {
+    var context: NSManagedObjectContext { get }
+    func saveContext()
+}
+
+final class CoreDataStack: CoreDataStackProtocol {
+    private let persistentContainer: NSPersistentContainer
     
-    private init() {}
-    
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "GithubUsers")
-        container.loadPersistentStores { _, error in
+    init(modelName: String = "GithubUsers") {
+        persistentContainer = NSPersistentContainer(name: modelName)
+        persistentContainer.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Failed to load Core Data stack: \(error)")
             }
         }
-        return container
-    }()
+    }
     
     var context: NSManagedObjectContext {
         persistentContainer.viewContext

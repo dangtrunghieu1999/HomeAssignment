@@ -7,9 +7,9 @@ protocol UserStorage {
 }
 
 final class CoreDataUserStorage: UserStorage {
-    private let coreDataStack: CoreDataStack
+    private let coreDataStack: CoreDataStackProtocol
     
-    init(coreDataStack: CoreDataStack = .shared) {
+    init(coreDataStack: CoreDataStackProtocol) {
         self.coreDataStack = coreDataStack
     }
     
