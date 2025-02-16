@@ -8,9 +8,7 @@ A native iOS application that allows browsing GitHub users and viewing their det
 - View detailed user information
 - Offline support with CoreData
 - Pull-to-refresh functionality
-- Network status monitoring
 - Image caching
-- Retry mechanism for failed requests
 
 ## Architecture
 

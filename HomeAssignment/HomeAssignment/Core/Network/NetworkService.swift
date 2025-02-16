@@ -13,9 +13,11 @@ protocol NetworkService {
 
 final class URLSessionNetworkService: NetworkService {
     private let session: URLSession
+    private let logger: NetworkLogging
     
-    init(session: URLSession = .shared) {
+    init(session: URLSession = .shared, logger: NetworkLogging = NetworkLogger()) {
         self.session = session
+        self.logger = logger
     }
     
     func request<T: Decodable>(_ url: URL,
@@ -25,7 +27,7 @@ final class URLSessionNetworkService: NetworkService {
         request.httpMethod = method.rawValue
         headers?.forEach { request.addValue($1, forHTTPHeaderField: $0) }
         
-        NetworkLogger.shared.logRequest(request)
+        logger.logRequest(request)
         
         let (data, response) = try await session.data(for: request)
         
@@ -33,7 +35,7 @@ final class URLSessionNetworkService: NetworkService {
             throw GithubError.invalidResponse
         }
         
-        NetworkLogger.shared.logResponse(data: data, response: response)
+        logger.logResponse(data: data, response: response)
         
         switch httpResponse.statusCode {
         case 200...299:

@@ -1,8 +1,14 @@
 import Foundation
 
-final class NetworkLogger {
-    static let shared = NetworkLogger()
-    private init() {}
+protocol NetworkLogging {
+    func logRequest(_ request: URLRequest)
+    func logResponse(data: Data, response: URLResponse)
+    func logError(_ error: Error, statusCode: Int?)
+}
+
+final class NetworkLogger: NetworkLogging {
+
+    init() {}
     
     func logRequest(_ request: URLRequest) {
         #if DEBUG
