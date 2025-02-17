@@ -6,9 +6,9 @@ A native iOS application that allows browsing GitHub users and viewing their det
 
 - Browse GitHub users with infinite scrolling
 - View detailed user information
-- Offline support with CoreData
 - Pull-to-refresh functionality
 - Image caching
+- SMP
 
 ## Architecture
 
