@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		04739F4C2D619818005B2088 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 04739F4B2D619818005B2088 /* Kingfisher */; };
 		04739F4E2D619818005B2088 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04739F4D2D619818005B2088 /* SnapKit */; };
+		04EC705D2D622A9900D1C51D /* HomeUerListRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 04EC705C2D622A9900D1C51D /* HomeUerListRepository */; };
+		04EC71492D6235A600D1C51D /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = 04EC71482D6235A600D1C51D /* NetworkService */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,9 @@
 		0411DE112D6028CD00073D79 /* HomeAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411DE272D6028CE00073D79 /* HomeAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411DE312D6028CE00073D79 /* HomeAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04EC705B2D6224CB00D1C51D /* HomeUerListRepository */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HomeUerListRepository; path = ../HomeUerListRepository; sourceTree = SOURCE_ROOT; };
+		04EC71472D6234DF00D1C51D /* NetworkService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkService; path = ../NetworkService; sourceTree = SOURCE_ROOT; };
+		04EC714A2D62387600D1C51D /* HomeUserListUseCase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HomeUserListUseCase; path = ../HomeUserListUseCase; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -71,7 +76,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04739F4C2D619818005B2088 /* Kingfisher in Frameworks */,
+				04EC71492D6235A600D1C51D /* NetworkService in Frameworks */,
 				04739F4E2D619818005B2088 /* SnapKit in Frameworks */,
+				04EC705D2D622A9900D1C51D /* HomeUerListRepository in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +102,9 @@
 		0411DE082D6028CD00073D79 = {
 			isa = PBXGroup;
 			children = (
+				04EC71472D6234DF00D1C51D /* NetworkService */,
+				04EC705B2D6224CB00D1C51D /* HomeUerListRepository */,
+				04EC714A2D62387600D1C51D /* HomeUserListUseCase */,
 				0411DE132D6028CD00073D79 /* HomeAssignment */,
 				0411DE2A2D6028CE00073D79 /* HomeAssignmentTests */,
 				0411DE342D6028CE00073D79 /* HomeAssignmentUITests */,
@@ -142,6 +152,8 @@
 			packageProductDependencies = (
 				04739F4B2D619818005B2088 /* Kingfisher */,
 				04739F4D2D619818005B2088 /* SnapKit */,
+				04EC705C2D622A9900D1C51D /* HomeUerListRepository */,
+				04EC71482D6235A600D1C51D /* NetworkService */,
 			);
 			productName = HomeAssignment;
 			productReference = 0411DE112D6028CD00073D79 /* HomeAssignment.app */;
@@ -624,6 +636,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04739F492D6197E6005B2088 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		04EC705C2D622A9900D1C51D /* HomeUerListRepository */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HomeUerListRepository;
+		};
+		04EC71482D6235A600D1C51D /* NetworkService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkService;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
