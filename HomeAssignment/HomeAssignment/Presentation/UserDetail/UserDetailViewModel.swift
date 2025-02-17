@@ -1,15 +1,16 @@
 import Combine
 import Foundation
+import UserDetailUseCase
 
 final class UserDetailViewModel: BaseViewModel {
     // MARK: - Properties
-    private let getUserDetailUseCase: GetUserDetailUseCase
+    private let getUserDetailUseCase: UserGetDetailUseCase
     private let username: String
     
     @Published private(set) var detailState: DetailViewState<UserDetail> = DetailViewState()
     
     // MARK: - Init
-    init(username: String, getUserDetailUseCase: GetUserDetailUseCase) {
+    init(username: String, getUserDetailUseCase: UserGetDetailUseCase) {
         self.username = username
         self.getUserDetailUseCase = getUserDetailUseCase
         super.init()
@@ -20,7 +21,7 @@ final class UserDetailViewModel: BaseViewModel {
         startLoading()
         
         do {
-            let userDetail = try await getUserDetailUseCase.execute(username: username)
+            let userDetail = try await getUserDetailUseCase.getUserDetail(username: username)
             stopLoading()
             detailState.data = userDetail
         } catch {

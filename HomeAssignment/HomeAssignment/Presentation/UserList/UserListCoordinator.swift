@@ -1,4 +1,7 @@
 import UIKit
+import NetworkService
+import HomeUerListRepository
+import HomeUserListUseCase
 
 final class UserListCoordinator: Coordinator {
     var navigationController: UINavigationController
@@ -6,23 +9,18 @@ final class UserListCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     
     private let networkService: NetworkService
-    private let storage: UserStorage
-    private let coreDataStack: CoreDataStackProtocol
     
     init(
         navigationController: UINavigationController,
-        networkService: NetworkService = URLSessionNetworkService(),
-        coreDataStack: CoreDataStackProtocol = CoreDataStack()
+        networkService: NetworkService = URLSessionNetworkService()
     ) {
         self.navigationController = navigationController
         self.networkService = networkService
-        self.coreDataStack = coreDataStack
-        self.storage = CoreDataUserStorage(coreDataStack: coreDataStack)
     }
     
     func start() {
-        let repository = UserRepositoryImpl(networkService: networkService, storage: storage)
-        let getUsersUseCase = GetUsersUseCaseImpl(repository: repository)
+        let repository = HomeUserListRepositoryImpl(networkService: networkService)
+        let getUsersUseCase = HomeGetUsersUseCaseImpl(repository: repository)
         let viewModel = UserListViewModel(getUsersUseCase: getUsersUseCase)
         let viewController = UserListViewController(viewModel: viewModel)
         viewController.coordinator = self

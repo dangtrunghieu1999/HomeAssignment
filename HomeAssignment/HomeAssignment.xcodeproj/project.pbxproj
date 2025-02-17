@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		04739F4C2D619818005B2088 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 04739F4B2D619818005B2088 /* Kingfisher */; };
 		04739F4E2D619818005B2088 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04739F4D2D619818005B2088 /* SnapKit */; };
+		04B26D942D6375E50007EA0E /* HomeUserListUseCase in Frameworks */ = {isa = PBXBuildFile; productRef = 04B26D932D6375E50007EA0E /* HomeUserListUseCase */; };
+		04B26D962D6375ED0007EA0E /* UserDetailRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 04B26D952D6375ED0007EA0E /* UserDetailRepository */; };
+		04B26D982D6375ED0007EA0E /* UserDetailUseCase in Frameworks */ = {isa = PBXBuildFile; productRef = 04B26D972D6375ED0007EA0E /* UserDetailUseCase */; };
 		04EC705D2D622A9900D1C51D /* HomeUerListRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 04EC705C2D622A9900D1C51D /* HomeUerListRepository */; };
 		04EC71492D6235A600D1C51D /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = 04EC71482D6235A600D1C51D /* NetworkService */; };
 /* End PBXBuildFile section */
@@ -78,8 +81,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04739F4C2D619818005B2088 /* Kingfisher in Frameworks */,
+				04B26D982D6375ED0007EA0E /* UserDetailUseCase in Frameworks */,
 				04EC71492D6235A600D1C51D /* NetworkService in Frameworks */,
+				04B26D942D6375E50007EA0E /* HomeUserListUseCase in Frameworks */,
 				04739F4E2D619818005B2088 /* SnapKit in Frameworks */,
+				04B26D962D6375ED0007EA0E /* UserDetailRepository in Frameworks */,
 				04EC705D2D622A9900D1C51D /* HomeUerListRepository in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +164,9 @@
 				04739F4D2D619818005B2088 /* SnapKit */,
 				04EC705C2D622A9900D1C51D /* HomeUerListRepository */,
 				04EC71482D6235A600D1C51D /* NetworkService */,
+				04B26D932D6375E50007EA0E /* HomeUserListUseCase */,
+				04B26D952D6375ED0007EA0E /* UserDetailRepository */,
+				04B26D972D6375ED0007EA0E /* UserDetailUseCase */,
 			);
 			productName = HomeAssignment;
 			productReference = 0411DE112D6028CD00073D79 /* HomeAssignment.app */;
@@ -640,6 +649,18 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04739F492D6197E6005B2088 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		04B26D932D6375E50007EA0E /* HomeUserListUseCase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HomeUserListUseCase;
+		};
+		04B26D952D6375ED0007EA0E /* UserDetailRepository */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserDetailRepository;
+		};
+		04B26D972D6375ED0007EA0E /* UserDetailUseCase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserDetailUseCase;
 		};
 		04EC705C2D622A9900D1C51D /* HomeUerListRepository */ = {
 			isa = XCSwiftPackageProductDependency;

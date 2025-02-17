@@ -1,4 +1,7 @@
 import UIKit
+import NetworkService
+import UserDetailUseCase
+import UserDetailRepository
 
 final class UserDetailCoordinator: Coordinator {
     var navigationController: UINavigationController
@@ -7,25 +10,20 @@ final class UserDetailCoordinator: Coordinator {
     
     private let username: String
     private let networkService: NetworkService
-    private let storage: UserStorage
-    private let coreDataStack: CoreDataStackProtocol
 
     init(
         navigationController: UINavigationController,
         username: String,
-        networkService: NetworkService = URLSessionNetworkService(),
-        coreDataStack: CoreDataStackProtocol = CoreDataStack()
+        networkService: NetworkService = URLSessionNetworkService()
     ) {
         self.navigationController = navigationController
         self.username = username
         self.networkService = networkService
-        self.coreDataStack = coreDataStack
-        self.storage = CoreDataUserStorage(coreDataStack: coreDataStack)
     }
     
     func start() {
-        let repository = UserRepositoryImpl(networkService: networkService, storage: storage)
-        let getUserDetailUseCase = GetUserDetailUseCaseImpl(repository: repository)
+        let repository = UserDetailRepositoryImpl(networkService: networkService)
+        let getUserDetailUseCase = UserDetailUseCaseImpl(repository: repository)
         let viewModel = UserDetailViewModel(username: username, getUserDetailUseCase: getUserDetailUseCase)
         let viewController = UserDetailViewController(viewModel: viewModel)
         viewController.coordinator = self

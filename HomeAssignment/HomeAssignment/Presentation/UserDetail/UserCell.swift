@@ -1,5 +1,5 @@
 import UIKit
-import SnapKit
+import HomeUserListUseCase
 
 final class UserCell: UITableViewCell, ImageLoadable, Reusable {
     // MARK: - UI Components

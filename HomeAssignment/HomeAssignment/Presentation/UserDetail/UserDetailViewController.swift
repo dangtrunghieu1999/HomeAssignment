@@ -1,6 +1,6 @@
 import UIKit
 import Combine
-import SnapKit
+import UserDetailUseCase
 
 final class UserDetailViewController: BaseViewController, ImageLoadable {
     // MARK: - UI Components

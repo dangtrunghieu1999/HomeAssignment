@@ -2,10 +2,10 @@ import Foundation
 import HomeUserListUseCase
 
 public struct UserData: Decodable {
-    let id: Int
-    let login: String
-    let avatarUrl: String
-    let htmlUrl: String
+    public let id: Int
+    public let login: String
+    public let avatarUrl: String
+    public let htmlUrl: String
     
     enum CodingKeys: String, CodingKey {
         case id

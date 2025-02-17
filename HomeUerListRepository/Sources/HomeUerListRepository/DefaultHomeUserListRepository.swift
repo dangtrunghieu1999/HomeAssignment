@@ -5,7 +5,7 @@ import NetworkService
 public final class HomeUserListRepositoryImpl: HomeUserListRepository {
     private let networkService: NetworkService
 
-    init(networkService: NetworkService) {
+    public init(networkService: NetworkService) {
         self.networkService = networkService
     }
 

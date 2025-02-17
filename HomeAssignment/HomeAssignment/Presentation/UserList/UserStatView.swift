@@ -1,5 +1,4 @@
 import UIKit
-import SnapKit
 
 final class UserStatView: UIView {
     private let titleLabel: UILabel = {

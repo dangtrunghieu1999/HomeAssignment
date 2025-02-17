@@ -1,4 +1,5 @@
 import Foundation
+import HomeUserListUseCase
 
 final class UserListViewModel: BaseViewModel {
     // MARK: - Types
@@ -10,7 +11,7 @@ final class UserListViewModel: BaseViewModel {
     }
     
     // MARK: - Properties
-    private let getUsersUseCase: GetUsersUseCase
+    private let getUsersUseCase: HomeGetUsersUseCase
     private var currentPage = 0
     private let perPage = 20
     private var hasMorePages = true
@@ -20,7 +21,7 @@ final class UserListViewModel: BaseViewModel {
     @Published private(set) var users: [User] = []
     
     // MARK: - Init
-    init(getUsersUseCase: GetUsersUseCase) {
+    init(getUsersUseCase: HomeGetUsersUseCase) {
         self.getUsersUseCase = getUsersUseCase
         super.init()
     }
@@ -49,7 +50,7 @@ final class UserListViewModel: BaseViewModel {
           
         do {
             let since = page * perPage
-            let newUsers = try await getUsersUseCase.execute(since: since, perPage: perPage)
+            let newUsers = try await getUsersUseCase.fetchUserList(since: since, perPage: perPage)
             users.append(contentsOf: newUsers)
             currentPage += 1
             hasMorePages = newUsers.count == perPage
