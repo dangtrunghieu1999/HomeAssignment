@@ -21,7 +21,6 @@ public struct UserDetailData: Decodable {
     }
 }
 
-
 extension UserDetailData {
     func mapData() -> UserDetailUseCase.UserDetail {
         return UserDetailUseCase.UserDetail(
