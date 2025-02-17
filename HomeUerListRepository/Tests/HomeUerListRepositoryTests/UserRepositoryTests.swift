@@ -16,7 +16,7 @@ final class UserRepositoryTests: XCTestCase {
         """.data(using: .utf8)!
         
         // When
-        let sut = try JSONDecoder().decode(UserRepository.self, from: json)
+        let sut = try JSONDecoder().decode(UserData.self, from: json)
         
         // Then
         XCTAssertEqual(sut.id, 1)
@@ -27,7 +27,7 @@ final class UserRepositoryTests: XCTestCase {
     
     func test_mapData_shouldMapToUserCorrectly() {
         // Given
-        let sut = UserRepository(
+        let sut = UserData(
             id: 1,
             login: "testUser",
             avatarUrl: "https://example.com/avatar.jpg",
@@ -42,25 +42,6 @@ final class UserRepositoryTests: XCTestCase {
         XCTAssertEqual(user.login, sut.login)
         XCTAssertEqual(user.avatarUrl, sut.avatarUrl)
         XCTAssertEqual(user.htmlUrl, sut.htmlUrl)
-    }
-    
-    func test_request_withNetworkError_shouldThrowError() async throws {
-        // Given
-        let mockURLSession = MockURLSession()
-        let sut = DefaultHomeUserListRepository(
-            session: mockURLSession,
-            baseURL: URL(string: "https://api.github.com")!
-        )
-        struct MockError: Error {}
-        mockURLSession.mockError = MockError()
-        
-        // When/Then
-        do {
-            _ = try await sut.fetchUsers()
-            XCTFail("Expected error to be thrown")
-        } catch {
-            XCTAssertTrue(error is MockError)
-        }
     }
 }
 
@@ -96,5 +77,3 @@ protocol URLSessionProtocol {
         delegate: URLSessionTaskDelegate?
     ) async throws -> (Data, URLResponse)
 }
-
-extension URLSession: URLSessionProtocol {} 

@@ -23,7 +23,7 @@ final class UserListCoordinator: Coordinator {
     func start() {
         let repository = UserRepositoryImpl(networkService: networkService, storage: storage)
         let getUsersUseCase = GetUsersUseCaseImpl(repository: repository)
-        let viewModel = UserListViewModel(getUsersUseCase: getUsersUseCase, repository: repository)
+        let viewModel = UserListViewModel(getUsersUseCase: getUsersUseCase)
         let viewController = UserListViewController(viewModel: viewModel)
         viewController.coordinator = self
         navigationController.pushViewController(viewController, animated: true)

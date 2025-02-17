@@ -1,7 +1,7 @@
 import Foundation
 import HomeUserListUseCase
 
-public struct UserRepository: Decodable {
+public struct UserData: Decodable {
     let id: Int
     let login: String
     let avatarUrl: String
@@ -15,7 +15,7 @@ public struct UserRepository: Decodable {
     }
 }
 
-extension UserRepository {
+extension UserData {
     func mapData() -> HomeUserListUseCase.User {
         return HomeUserListUseCase.User(
             id: id,

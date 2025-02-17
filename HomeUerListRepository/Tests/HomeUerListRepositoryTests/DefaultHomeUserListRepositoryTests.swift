@@ -29,13 +29,13 @@ final class MockNetworkService: NetworkService {
 }
 
 final class DefaultHomeUserListRepositoryTests: XCTestCase {
-    var sut: UserRepositoryImpl!
+    var sut: HomeUserListRepositoryImpl!
     var mockNetworkService: MockNetworkService!
     
     override func setUp() {
         super.setUp()
         mockNetworkService = MockNetworkService()
-        sut = UserRepositoryImpl(networkService: mockNetworkService)
+        sut = HomeUserListRepositoryImpl(networkService: mockNetworkService)
     }
     
     override func tearDown() {
@@ -46,7 +46,7 @@ final class DefaultHomeUserListRepositoryTests: XCTestCase {
     
     func test_getUsers_success() async throws {
         // Given
-        let mockUsers: [UserRepository] = [
+        let mockUsers: [UserData] = [
             .init(id: 1, login: "user1", avatarUrl: "https://example.com/avatar1", htmlUrl: "URL1"),
             .init(id: 2, login: "user2", avatarUrl: "https://example.com/avatar2", htmlUrl: "URL2")
         ]
@@ -71,7 +71,7 @@ final class DefaultHomeUserListRepositoryTests: XCTestCase {
         // Given
         let since = 10
         let perPage = 20
-        mockNetworkService.mockResponse = [UserRepository]()
+        mockNetworkService.mockResponse = [UserData]()
         
         // When
         _ = try await sut.getUsers(since: since, perPage: perPage)
@@ -100,7 +100,7 @@ final class DefaultHomeUserListRepositoryTests: XCTestCase {
     
     func test_getUsers_emptyResponse() async throws {
         // Given
-        mockNetworkService.mockResponse = [UserRepository]()
+        mockNetworkService.mockResponse = [UserData]()
         
         // When
         let result = try await sut.getUsers(since: 0, perPage: 10)

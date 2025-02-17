@@ -14,16 +14,14 @@ final class UserListViewModel: BaseViewModel {
     private var currentPage = 0
     private let perPage = 20
     private var hasMorePages = true
-    private let repository: UserRepository
     
     // MARK: - Published Properties
     @Published private(set) var state: State = .idle
     @Published private(set) var users: [User] = []
     
     // MARK: - Init
-    init(getUsersUseCase: GetUsersUseCase, repository: UserRepository) {
+    init(getUsersUseCase: GetUsersUseCase) {
         self.getUsersUseCase = getUsersUseCase
-        self.repository = repository
         super.init()
     }
     
