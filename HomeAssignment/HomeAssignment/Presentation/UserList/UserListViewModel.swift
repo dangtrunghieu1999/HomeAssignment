@@ -3,11 +3,26 @@ import HomeUserListUseCase
 
 final class UserListViewModel: BaseViewModel {
     // MARK: - Types
-    enum State {
+    enum State: Equatable {
         case idle
         case loading
         case loaded([User])
         case error(Error)
+        
+        static func == (lhs: State, rhs: State) -> Bool {
+            switch (lhs, rhs) {
+            case (.idle, .idle):
+                return true
+            case (.loading, .loading):
+                return true
+            case let (.loaded(lhsUsers), .loaded(rhsUsers)):
+                return lhsUsers == rhsUsers
+            case (.error, .error):
+                return true
+            default:
+                return false
+            }
+        }
     }
     
     // MARK: - Properties

@@ -25,7 +25,9 @@ final class UserDetailViewModel: BaseViewModel {
             stopLoading()
             detailState.data = userDetail
         } catch {
-            handleError(error)
+            stopLoading()
+            detailState.error = error
+            detailState.data = nil
         }
     }
     
