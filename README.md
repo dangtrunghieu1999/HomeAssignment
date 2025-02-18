@@ -8,7 +8,7 @@ A native iOS application that allows browsing GitHub users and viewing their det
 - View detailed user information
 - Pull-to-refresh functionality
 - Image caching
-- SMP
+- SPM (Swift Package Manager)
 
 ## Architecture
 
@@ -16,7 +16,6 @@ The app follows the MVVM (Model-View-ViewModel) architecture pattern and impleme
 
 - Async/await for asynchronous operations
 - Combine for reactive programming
-- CoreData for persistence
 - Protocol-oriented programming
 - Dependency injection
 - Unit and UI testing
